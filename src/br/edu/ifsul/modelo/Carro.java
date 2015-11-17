@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -30,9 +31,13 @@ public class Carro implements Serializable{
     @Column(name = "ano", nullable = false)
     private Integer ano;
     
-        
+//A descrição pode ser vazia 
+    @Length(max = 50, message = "A descrição deve ter no máximo {max} caracteres")
+    @Column(name = "descricao", length = 50, nullable = false)        
     private String descricao;
     
+    @NotNull(message = "O valor das multas deve ser informado. Caso não houver, informe zero")
+    @Column(name = "multas", nullable = false, columnDefinition = "decimal(12,2)")        
     private Double multas;
 
     public Carro() {
