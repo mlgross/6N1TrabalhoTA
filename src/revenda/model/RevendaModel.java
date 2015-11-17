@@ -7,7 +7,7 @@ package revenda.model;
 
 /**
  *
- * @author Acefire
+ * @author mlgross
  */
 public class RevendaModel {
 
