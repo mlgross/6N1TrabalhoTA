@@ -30,6 +30,7 @@ public class Carro implements Serializable{
     @Column(name = "ano", nullable = false)
     private Integer ano;
     
+        
     private String descricao;
     
     private Double multas;
