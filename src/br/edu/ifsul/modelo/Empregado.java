@@ -3,18 +3,47 @@ package br.edu.ifsul.modelo;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author mlgross 
  */
+@Entity
+@Table(name = "empregado")
 public abstract class Empregado implements Serializable{
-    private Integer pis;
-    private String nome;
-    private Calendar dataadm;
-    private String endereco; 
-    private Double salario;
 
+    @Id
+    @Column(name = "pis",length = 15,nullable = false)  
+    private Integer pis;
+    
+    @NotEmpty(message = "O nome deve ser informado")
+    @Length(max = 50, message = "O modelo nome ter no máximo {max} caracteres")
+    @Column(name = "nome", length = 50, nullable = false)      
+    private String nome;
+    
+    @Temporal(TemporalType.DATE)
+    @NotNull(message = "O nascimento deve ser informado")
+    @Column(name = "nascimento",nullable = false)      
+    private Calendar dataadm;
+    
+    @NotEmpty(message = "O endereco deve ser informado")
+    @Length(max = 50, message = "O endereco nome ter no máximo {max} caracteres")
+    @Column(name = "endereco", length = 50, nullable = false)      
+    private String endereco; 
+    
+    @NotNull(message = "O sálario de compra deve ser informado.")
+    @Column(name = "salario", nullable = false, columnDefinition = "decimal(12,2)")        
+    private Double salario;
+   
     public Empregado() {
     }
 

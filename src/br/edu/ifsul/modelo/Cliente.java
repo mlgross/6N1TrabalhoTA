@@ -20,12 +20,12 @@ public class Cliente implements Serializable{
 
     @Id
     @CPF(message = "CPF inválido")
-    @Length(min = 14,max = 14,message = "CPF inválido")
+    @Length(min = 14,max = 14, message = "CPF inválido")
     @NotEmpty(message = "O CPF deve ser informado")
     @Column(name = "cpf", length = 14,nullable = false)
     private String cpf;
 
-    @Length(max = 10, min = 10,message = "O RG deve ter {max} caracteres")
+    @Length(max = 10, min = 10, message = "O RG deve ter {max} caracteres")
     @NotEmpty(message = "O RG deve ser informado")
     @Column(name = "rg",length = 10,nullable = false)
     private String rg;

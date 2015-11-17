@@ -3,16 +3,42 @@ package br.edu.ifsul.modelo;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author mlgross 
  */
+@Entity
+@Table(name = "compra")
 public class Compra implements Serializable{
+    
+    @Id
+    @Column(name = "crv",length = 15,nullable = false)    
     private Integer crv;
+
+    @Temporal(TemporalType.DATE)
+    @NotNull(message = "O nascimento deve ser informado")
+    @Column(name = "nascimento",nullable = false)    
     private Calendar datacompra;
+    
+    @NotNull(message = "O Valor FIPE do veículo deve ser informado.")
+    @Column(name = "valorfipe", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double valorfipe;
+    
+    @NotNull(message = "O preço de compra deve ser informado.")
+    @Column(name = "precocompra", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double precocompra;
+    
+    @NotNull(message = "O custo das despesas envolvidas na compra deve ser informado.")
+    @Column(name = "custodesp", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double custodesp;
 
     public Compra() {
