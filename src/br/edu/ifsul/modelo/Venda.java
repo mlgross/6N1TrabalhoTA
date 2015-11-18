@@ -48,7 +48,6 @@ public class Venda implements Serializable{
     @Column(name = "custodesp", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double custodesp;
 
-    
     public Venda() {
     }
 
