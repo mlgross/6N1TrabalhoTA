@@ -3,18 +3,52 @@ package br.edu.ifsul.modelo;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author mlgross 
  */
+@Entity
+@Table(name = "venda")
 public class Venda implements Serializable{
+    
+    @Id
+    @SequenceGenerator(name = "seq_venda", sequenceName = "seq_venda_id",
+            allocationSize = 1)
+    @GeneratedValue(generator = "seq_venda", strategy = GenerationType.SEQUENCE)
     private Integer nf;
+    
+    @Temporal(TemporalType.DATE)
+    @NotNull(message = "A data da venda deve ser informado")
+    @Column(name = "dataven",nullable = false) 
     private Calendar dataven;
+    
+    @Length(max = 50, message = "O banco devem ter até {max} caracteres")
+    @NotEmpty(message = "O banco deve ser informado")
+    @Column(name = "banco",length = 50, nullable = false)        
     private String banco;
+    
+    @NotNull(message = "O valor da venda deve ser informado.")
+    @Column(name = "valorven", nullable = false, columnDefinition = "decimal(12,2)")     
     private Double valorven;
+    
+    @NotNull(message = "O custo da venda ocorrida deve ser informado.")
+    @Column(name = "custodesp", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double custodesp;
 
+    
     public Venda() {
     }
 
