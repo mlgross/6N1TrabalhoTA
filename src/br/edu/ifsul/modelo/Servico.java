@@ -3,17 +3,50 @@ package br.edu.ifsul.modelo;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
  * @author mlgross 
  */
+@Entity
+@Table(name = "servico")
 public class Servico implements Serializable{
     
+    @Id
+    @SequenceGenerator(name = "seq_servico", sequenceName = "seq_servico_id",
+            allocationSize = 1)
+    @GeneratedValue(generator = "seq_servico", strategy = GenerationType.SEQUENCE)
     private Integer numero;
+    
+    @NotNull(message = "O custo de compra deve ser informado.")
+    @Column(name = "custo", nullable = false, columnDefinition = "decimal(12,2)")        
     private Double custo;
+    
+    @Length(max = 50, message = "Os insumos devem ter até {max} caracteres")
+    @NotEmpty(message = "Os insumos deve ser informado")
+    @Column(name = "insumos",length = 50, nullable = false)    
     private String insumos;
+    
+    @Length(max = 50, message = "A descrição devem ter até {max} caracteres")
+    @NotEmpty(message = "A descrição deve ser informado")
+    @Column(name = "descricao",length = 50, nullable = false)        
     private String descricao;
+    
+    @Temporal(TemporalType.DATE)
+    @NotNull(message = "A duração deve ser informada")
+    @Column(name = "duracao", nullable = false)  
     private Calendar duracao;
 
     public Servico() {
