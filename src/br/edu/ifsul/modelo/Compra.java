@@ -43,7 +43,7 @@ public class Compra implements Serializable{
     private Double custodesp;
 
 /**
- * relacionamento
+ * relacionamentos
  */
     @NotNull(message = "O cliente deve ser informado")
     @ManyToOne
@@ -54,6 +54,11 @@ public class Compra implements Serializable{
     @ManyToOne
     @JoinColumn(name = "carro", referencedColumnName = "renavan", nullable = false)    
     private Carro carro;
+    
+    @NotNull(message = "O negociador deve ser informado")
+    @ManyToOne
+    @JoinColumn(name = "negociador_id", referencedColumnName = "id", nullable = false)
+    private Negociador negociador;    
     
     public Compra() {
     }
@@ -123,6 +128,30 @@ public class Compra implements Serializable{
     @Override
     public String toString() {
         return "Compra{" + "crv=" + crv + '}';
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Carro getCarro() {
+        return carro;
+    }
+
+    public void setCarro(Carro carro) {
+        this.carro = carro;
+    }
+
+    public Negociador getNegociador() {
+        return negociador;
+    }
+
+    public void setNegociador(Negociador negociador) {
+        this.negociador = negociador;
     }
     
     
