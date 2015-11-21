@@ -18,6 +18,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "carro")
 public class Carro implements Serializable{
     @Id
+    @Column(name = "renavan", nullable = false)
+    private Integer renavan;
+    
     @NotEmpty(message = "A placa deve ser informada")
     @Length(max = 8, message = "O placa deve ter no máximo {max} caracteres")
     @Column(name = "placa", length = 8, nullable = false)

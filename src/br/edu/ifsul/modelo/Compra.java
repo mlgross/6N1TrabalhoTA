@@ -49,6 +49,11 @@ public class Compra implements Serializable{
     @ManyToOne
     @JoinColumn(name = "cliente", referencedColumnName = "cpf", nullable = false)    
     private Cliente cliente;    
+
+    @NotNull(message = "O carro deve ser informado")
+    @ManyToOne
+    @JoinColumn(name = "carro", referencedColumnName = "renavan", nullable = false)    
+    private Carro carro;
     
     public Compra() {
     }
