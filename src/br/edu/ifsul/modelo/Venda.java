@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -47,7 +49,14 @@ public class Venda implements Serializable{
     @NotNull(message = "O custo da venda ocorrida deve ser informado.")
     @Column(name = "custodesp", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double custodesp;
-
+/**
+ * relacionamento
+ */
+    @NotNull(message = "O cliente deve ser informado")
+    @ManyToOne
+    @JoinColumn(name = "cliente", referencedColumnName = "cpf", nullable = false)    
+    private Cliente cliente;
+    
     public Venda() {
     }
 

@@ -6,6 +6,8 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,6 +42,14 @@ public class Compra implements Serializable{
     @Column(name = "custodesp", nullable = false, columnDefinition = "decimal(12,2)")         
     private Double custodesp;
 
+/**
+ * relacionamento
+ */
+    @NotNull(message = "O cliente deve ser informado")
+    @ManyToOne
+    @JoinColumn(name = "cliente", referencedColumnName = "cpf", nullable = false)    
+    private Cliente cliente;    
+    
     public Compra() {
     }
 
