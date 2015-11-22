@@ -1,10 +1,15 @@
 package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
@@ -43,6 +48,24 @@ public class Carro implements Serializable{
     @Column(name = "multas", nullable = false, columnDefinition = "decimal(12,2)")        
     private Double multas;
 
+    @NotNull(message = "Deve ser especificado se o veículo está em posse da revenda ou não")
+    @Column(name = "emposse", nullable = false)
+    private Boolean emposse;
+    
+    @OneToMany(mappedBy = "carro",cascade = CascadeType.ALL,
+            orphanRemoval = true, fetch = FetchType.LAZY)    
+    private List<Servico> servicos = new ArrayList<>();    
+
+    public void adicionarServico(Servico obj){
+        obj.setCarro(this);
+        servicos.add(obj);
+    }
+    
+    public void removerServico(int index){
+        servicos.remove(index);
+    }    
+    
+    
     public Carro() {
     }
 
@@ -106,6 +129,22 @@ public class Carro implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public Integer getRenavan() {
+        return renavan;
+    }
+
+    public void setRenavan(Integer renavan) {
+        this.renavan = renavan;
+    }
+
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
     
     

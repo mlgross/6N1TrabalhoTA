@@ -47,6 +47,10 @@ public abstract class Empregado implements Serializable{
     @Column(name = "salario", nullable = false, columnDefinition = "decimal(12,2)")        
     private Double salario;
    
+    @NotNull(message = "Deve ser informado ser o empregado está ativo ou já foi demitido")
+    @Column(name = "ativo", nullable = false)
+    private Boolean ativo;
+    
     public Empregado() {
     }
 

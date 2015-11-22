@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -49,6 +51,16 @@ public class Servico implements Serializable{
     @Column(name = "duracao", nullable = false)  
     private Calendar duracao;
 
+    @NotNull(message = "O carro deve ser informada")
+    @ManyToOne
+    @JoinColumn(name = "carro_id", referencedColumnName = "renavan", nullable = false)
+    private Carro carro; 
+    
+    @NotNull(message = "O Reparador deve ser informado")
+    @ManyToOne
+    @JoinColumn(name = "reparador_id", referencedColumnName = "pis", nullable = false)
+    private Reparador reparador;     
+    
     public Servico() {
     }
 
@@ -117,6 +129,22 @@ public class Servico implements Serializable{
     @Override
     public String toString() {
         return "Servico{" + "descricao=" + descricao + '}';
+    }
+
+    public Carro getCarro() {
+        return carro;
+    }
+
+    public void setCarro(Carro carro) {
+        this.carro = carro;
+    }
+
+    public Reparador getReparador() {
+        return reparador;
+    }
+
+    public void setReparador(Reparador reparador) {
+        this.reparador = reparador;
     }
     
     
