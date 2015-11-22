@@ -62,6 +62,10 @@ public class Venda implements Serializable{
     @JoinColumn(name = "carro", referencedColumnName = "renavan", nullable = false)    
     private Carro carro;
     
+    @NotNull(message = "O negociador deve ser informado")
+    @ManyToOne
+    @JoinColumn(name = "negociador_id", referencedColumnName = "id", nullable = false)
+    private Negociador negociador;   
     
     public Venda() {
     }
@@ -131,6 +135,30 @@ public class Venda implements Serializable{
     @Override
     public String toString() {
         return "Venda{" + "nf=" + nf + '}';
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Carro getCarro() {
+        return carro;
+    }
+
+    public void setCarro(Carro carro) {
+        this.carro = carro;
+    }
+
+    public Negociador getNegociador() {
+        return negociador;
+    }
+
+    public void setNegociador(Negociador negociador) {
+        this.negociador = negociador;
     }
     
     

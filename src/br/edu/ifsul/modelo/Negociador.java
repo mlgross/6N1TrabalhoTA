@@ -15,30 +15,43 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author mlgross 
+ * @author mlgross
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "negociador")
-public class Negociador extends Empregado implements Serializable{
-    
+public class Negociador extends Empregado implements Serializable {
+
     @NotNull(message = "A comissao da compra deve ser informado.")
-    @Column(name = "comissao", nullable = false, columnDefinition = "decimal(12,2)")     
+    @Column(name = "comissao", nullable = false, columnDefinition = "decimal(12,2)")
     private Double comissao;
 
-    @OneToMany(mappedBy = "negociador",cascade = CascadeType.ALL,
-            orphanRemoval = true, fetch = FetchType.LAZY)    
+    @OneToMany(mappedBy = "negociador", cascade = CascadeType.ALL,
+            orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Compra> compras = new ArrayList<>();
-    
-    public void adicionarCompra(Compra obj){
+
+    @OneToMany(mappedBy = "negociador", cascade = CascadeType.ALL,
+            orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Venda> vendas = new ArrayList<>();
+
+    public void adicionarCompra(Compra obj) {
         obj.setNegociador(this);
         compras.add(obj);
     }
-    
-    public void removerCompra(int index){
+
+    public void removerCompra(int index) {
         compras.remove(index);
     }
-    
+
+    public void adicionarVenda(Venda obj) {
+        obj.setNegociador(this);
+        vendas.add(obj);
+    }
+
+    public void removerVenda(int index) {
+        vendas.remove(index);
+    }
+
     public Double getComissao() {
         return comissao;
     }
@@ -54,5 +67,13 @@ public class Negociador extends Empregado implements Serializable{
     public void setCompras(List<Compra> compras) {
         this.compras = compras;
     }
-    
+
+    public List<Venda> getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(List<Venda> vendas) {
+        this.vendas = vendas;
+    }
+
 }
