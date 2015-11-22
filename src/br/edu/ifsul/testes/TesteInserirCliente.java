@@ -21,9 +21,13 @@ public class TesteInserirCliente {
         try {
             emf = Persistence.createEntityManagerFactory("Nome da Unidade de Persistência");
             em = emf.createEntityManager();
+ 
             Cliente cliente = new Cliente();
-            
-//usar get e set em cada atributo //
+            cliente.setCpf(null);
+            cliente.setEndereco(null);
+            cliente.setNome(null);
+            cliente.setRg(null);
+            cliente.setTelefone(null);
             
             // criando o objeto para validar as anotações da bean validation API
             Validator validador = Validation.buildDefaultValidatorFactory().getValidator();
