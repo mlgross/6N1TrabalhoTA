@@ -1,13 +1,9 @@
 package br.edu.ifsul.testes;
 
 import br.edu.ifsul.modelo.Cliente;
-import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
 
 /**
  *
