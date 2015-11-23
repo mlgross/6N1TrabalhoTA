@@ -31,7 +31,7 @@ public class Cliente implements Serializable{
     private String rg;
     
     @NotEmpty(message = "O nome deve ser informado")
-    @Length(max = 50, message = "O modelo nome ter no máximo {max} caracteres")
+    @Length(max = 50, message = "O nome ter no máximo {max} caracteres")
     @Column(name = "nome", length = 50, nullable = false)    
     private String nome;
     
