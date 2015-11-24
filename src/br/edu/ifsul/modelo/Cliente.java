@@ -25,7 +25,7 @@ public class Cliente implements Serializable{
     @Column(name = "cpf", length = 14,nullable = false)
     private String cpf;
 
-    @Length(max = 10, min = 10, message = "O RG deve ter {max} caracteres")
+    @Length(max = 10, message = "O RG deve ter {max} caracteres")
     @NotEmpty(message = "O RG deve ser informado")
     @Column(name = "rg",length = 10,nullable = false)
     private String rg;
