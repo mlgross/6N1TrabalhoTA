@@ -146,6 +146,14 @@ public class Carro implements Serializable{
     public void setServicos(List<Servico> servicos) {
         this.servicos = servicos;
     }
+
+    public Boolean getEmposse() {
+        return emposse;
+    }
+
+    public void setEmposse(Boolean emposse) {
+        this.emposse = emposse;
+    }
     
     
     
