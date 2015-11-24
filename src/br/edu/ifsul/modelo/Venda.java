@@ -64,7 +64,7 @@ public class Venda implements Serializable{
     
     @NotNull(message = "O negociador deve ser informado")
     @ManyToOne
-    @JoinColumn(name = "negociador_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "negociador_pis", referencedColumnName = "pis", nullable = false)
     private Negociador negociador;   
     
     public Venda() {

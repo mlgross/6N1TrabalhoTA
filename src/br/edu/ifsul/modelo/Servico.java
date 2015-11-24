@@ -58,7 +58,7 @@ public class Servico implements Serializable{
     
     @NotNull(message = "O Reparador deve ser informado")
     @ManyToOne
-    @JoinColumn(name = "reparador_id", referencedColumnName = "pis", nullable = false)
+    @JoinColumn(name = "reparador_pis", referencedColumnName = "pis", nullable = false)
     private Reparador reparador;     
     
     public Servico() {
