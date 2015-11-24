@@ -1,15 +1,17 @@
 package br.edu.ifsul.testes;
 
-import br.edu.ifsul.modelo.Carro;
+import br.edu.ifsul.modelo.Reparador;
+import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 
 /**
  *
  * @author mlgross 
  */
-public class TesteInserirCarro {
+public class TesteInserirReparador {
     /**
      * @param args the command line arguments
      */
@@ -18,18 +20,18 @@ public class TesteInserirCarro {
                 = Persistence.createEntityManagerFactory("Revenda-ModelPU");
         EntityManager em = emf.createEntityManager();
 
-        Carro carro = new Carro();
+        Reparador reparador = new Reparador();
         
-        carro.setAno(2009);
-        carro.setDescricao("Seguro em dia, 17 prestações a quitar");
-        carro.setModelo("Fiat Estrada 2.0");
-        carro.setMultas(0.0);
-        carro.setPlaca("IXF-7896");
-        carro.setRenavan(985798354);
-        carro.setEmposse(false);
+        reparador.setAtivo(true);
+        reparador.setDataadm(Calendar.getInstance());
+        reparador.setEndereco("Rua Machado Nelman 54, Lot. Borges, Passo Fundo/RS");
+        reparador.setEspecialidade("Funilaria");
+        reparador.setNome("Luis Ângelo Gonsalvez");
+        reparador.setPis(327498234);
+        reparador.setSalario(1400.0);
         
         em.getTransaction().begin();
-        em.persist(carro);
+        em.persist(reparador);
         em.getTransaction().commit();
         em.close();
         emf.close();
