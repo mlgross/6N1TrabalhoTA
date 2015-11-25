@@ -46,10 +46,9 @@ public class Servico implements Serializable{
     @Column(name = "descricao",length = 50, nullable = false)        
     private String descricao;
     
-    @Temporal(TemporalType.DATE)
     @NotNull(message = "A duração deve ser informada")
     @Column(name = "duracao", nullable = false)  
-    private Calendar duracao;
+    private Integer duracao;
 
     @NotNull(message = "O carro deve ser informada")
     @ManyToOne
@@ -96,14 +95,6 @@ public class Servico implements Serializable{
         this.descricao = descricao;
     }
 
-    public Calendar getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(Calendar duracao) {
-        this.duracao = duracao;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
@@ -146,9 +137,14 @@ public class Servico implements Serializable{
     public void setReparador(Reparador reparador) {
         this.reparador = reparador;
     }
+
+    public Integer getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Integer duracao) {
+        this.duracao = duracao;
+    }
     
-    
-    
-    
-    
+
 }

@@ -3,7 +3,6 @@ package br.edu.ifsul.testes;
 import br.edu.ifsul.modelo.Reparador;
 import br.edu.ifsul.modelo.Carro;
 import br.edu.ifsul.modelo.Servico;
-import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -31,7 +30,7 @@ public class TestaInserirServico {
         servico.setCusto(250.0);
         servico.setDescricao("Troca de escapamento");
         //modify tipe of data
-        servico.setDuracao(Calendar.getInstance());
+        servico.setDuracao(5);
         servico.setInsumos("Jogo de Escapamento");
         
         em.getTransaction().begin();

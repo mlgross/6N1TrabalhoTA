@@ -22,7 +22,8 @@ import javax.validation.constraints.NotNull;
 public class Compra implements Serializable{
     
     @Id
-    @Column(name = "crv",length = 15,nullable = false)    
+    @NotNull(message = "O CRV deve ser informado")
+    @Column(name = "crv", nullable = false)    
     private Integer crv;
 
     @Temporal(TemporalType.DATE)

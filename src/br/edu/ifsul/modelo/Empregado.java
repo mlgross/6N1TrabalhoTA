@@ -25,7 +25,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public abstract class Empregado implements Serializable{
 
     @Id
-    @Column(name = "pis",length = 15,nullable = false)  
+    @NotNull(message = "O PIS deve ser informado")
+    @Column(name = "pis", nullable = false)  
     private Integer pis;
     
     @NotEmpty(message = "O nome deve ser informado")

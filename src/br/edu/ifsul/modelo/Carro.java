@@ -22,7 +22,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "carro")
 public class Carro implements Serializable{
+    
     @Id
+    @NotNull(message = "O renavan deve ser informado")
     @Column(name = "renavan", nullable = false)
     private Integer renavan;
     
@@ -36,6 +38,7 @@ public class Carro implements Serializable{
     @Column(name = "modelo", length = 20, nullable = false)
     private String modelo;
     
+    @NotNull(message = "O ano deve ser informado")
     @Column(name = "ano", nullable = false)
     private Integer ano;
     
