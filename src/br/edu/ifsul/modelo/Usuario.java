@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "usuarios")
-public class Usuarios implements Serializable{
+public class Usuario implements Serializable{
     
     @Id
     @SequenceGenerator(name = "seq_usuario", sequenceName = "seq_usuario_id",
@@ -60,7 +60,7 @@ public class Usuarios implements Serializable{
         this.senha = senha;
     }
 
-    public Usuarios() {
+    public Usuario() {
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Usuarios implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Usuarios other = (Usuarios) obj;
+        final Usuario other = (Usuario) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
