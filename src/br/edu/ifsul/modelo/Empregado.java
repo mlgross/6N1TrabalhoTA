@@ -30,7 +30,7 @@ public abstract class Empregado implements Serializable{
     private Integer pis;
     
     @NotEmpty(message = "O nome deve ser informado")
-    @Length(max = 50, message = "O modelo nome ter no máximo {max} caracteres")
+    @Length(max = 50, message = "O nome ter no máximo {max} caracteres")
     @Column(name = "nome", length = 50, nullable = false)      
     private String nome;
     
