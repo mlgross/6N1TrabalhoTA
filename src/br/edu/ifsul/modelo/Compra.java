@@ -27,8 +27,8 @@ public class Compra implements Serializable{
     private Integer crv;
 
     @Temporal(TemporalType.DATE)
-    @NotNull(message = "O nascimento deve ser informado")
-    @Column(name = "nascimento",nullable = false)    
+    @NotNull(message = "A data da compra deve ser informada")
+    @Column(name = "datacompra",nullable = false)    
     private Calendar datacompra;
     
     @NotNull(message = "O Valor FIPE do veículo deve ser informado.")
