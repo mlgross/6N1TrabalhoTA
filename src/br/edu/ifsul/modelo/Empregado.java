@@ -35,7 +35,7 @@ public abstract class Empregado implements Serializable{
     private String nome;
     
     @Temporal(TemporalType.DATE)
-    @NotNull(message = "A data de admissão deve ser informado")
+    @NotNull(message = "A data de admissão deve ser informada")
     @Column(name = "dataadm",nullable = false) 
     private Calendar dataadm;
     

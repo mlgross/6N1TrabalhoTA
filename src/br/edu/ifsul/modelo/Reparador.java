@@ -23,8 +23,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "reparador")
 public class Reparador extends Empregado implements Serializable{
     
-    @NotEmpty(message = "A especialidade deve ser informado")
-    @Length(max = 50, message = "A especialidade nome ter no máximo {max} caracteres")
+    @NotEmpty(message = "A especialidade deve ser informada")
+    @Length(max = 50, message = "A especialidade deve ter no máximo {max} caracteres")
     @Column(name = "especialidade", length = 50, nullable = false)      
     private String especialidade;
 
