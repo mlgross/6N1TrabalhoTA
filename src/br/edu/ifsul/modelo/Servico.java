@@ -50,12 +50,12 @@ public class Servico implements Serializable{
     @Column(name = "duracao", nullable = false)  
     private Integer duracao;
 
-    @NotNull(message = "O carro deve ser informada")
+    @NotNull(message = "O carro deve ser informado")
     @ManyToOne
     @JoinColumn(name = "carro_id", referencedColumnName = "renavan", nullable = false)
     private Carro carro; 
     
-    @NotNull(message = "O Reparador deve ser informado")
+    @NotNull(message = "O reparador deve ser informado")
     @ManyToOne
     @JoinColumn(name = "reparador_pis", referencedColumnName = "pis", nullable = false)
     private Reparador reparador;     
