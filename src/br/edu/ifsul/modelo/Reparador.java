@@ -28,7 +28,7 @@ public class Reparador extends Empregado implements Serializable{
     @Column(name = "especialidade", length = 50, nullable = false)      
     private String especialidade;
 
-    @OneToMany(mappedBy = "reparador",cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "reparador",
             orphanRemoval = true, fetch = FetchType.LAZY)    
     private List<Servico> servicos = new ArrayList<>();    
 

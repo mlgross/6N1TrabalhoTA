@@ -55,7 +55,7 @@ public class Carro implements Serializable{
     @Column(name = "emposse", nullable = false)
     private Boolean emposse;
     
-    @OneToMany(mappedBy = "carro",cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "carro",
             orphanRemoval = true, fetch = FetchType.LAZY)    
     private List<Servico> servicos = new ArrayList<>();    
 

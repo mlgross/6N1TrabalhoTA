@@ -26,11 +26,11 @@ public class Negociador extends Empregado implements Serializable {
     @Column(name = "comissao", nullable = false, columnDefinition = "decimal(12,2)")
     private Double comissao;
 
-    @OneToMany(mappedBy = "negociador", cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "negociador", 
             orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Compra> compras = new ArrayList<>();
 
-    @OneToMany(mappedBy = "negociador", cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "negociador", 
             orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Venda> vendas = new ArrayList<>();
 
