@@ -20,8 +20,8 @@ public class TestaInserirServico {
                 = Persistence.createEntityManagerFactory("Revenda-ModelPU");
         EntityManager em = emf.createEntityManager();
 
-        Reparador reparador = em.find(Reparador.class, 327498234);       
-        Carro carro = em.find(Carro.class, 985798354);
+        Reparador reparador = em.find(Reparador.class, 166666266);       
+        Carro carro = em.find(Carro.class, 876876876);
         
         Servico servico = new Servico();
 
